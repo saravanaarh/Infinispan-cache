@@ -1,8 +1,6 @@
-package com.project.cache.dto;
+package com.project.cache.model.dto;
 
 import lombok.*;
-
-import java.util.List;
 
 @Builder
 @Data

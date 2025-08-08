@@ -1,6 +1,6 @@
 package com.project.cache.controller;
 
-import com.project.cache.dto.StudentDTO;
+import com.project.cache.model.dto.StudentDTO;
 import com.project.cache.model.Student;
 import com.project.cache.services.StudentService;
 import lombok.RequiredArgsConstructor;

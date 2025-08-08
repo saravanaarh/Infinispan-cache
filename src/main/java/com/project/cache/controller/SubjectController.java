@@ -1,6 +1,6 @@
 package com.project.cache.controller;
 
-import com.project.cache.dto.SubjectDTO;
+import com.project.cache.model.dto.SubjectDTO;
 import com.project.cache.model.Subject;
 import com.project.cache.services.SubjectService;
 import lombok.RequiredArgsConstructor;

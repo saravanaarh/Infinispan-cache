@@ -1,4 +1,4 @@
-package com.project.cache.dto;
+package com.project.cache.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
