@@ -2,7 +2,7 @@ package com.project.cache.controller;
 
 import com.project.cache.model.dto.SubjectDTO;
 import com.project.cache.model.Subject;
-import com.project.cache.services.SubjectService;
+import com.project.cache.services.impl.SubjectServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,11 @@ import java.util.List;
 @RequestMapping("/subjects")
 public class SubjectController {
 
-    private final SubjectService subjectService;
+    private SubjectServiceImpl subjectService;
+
+    public SubjectController(SubjectServiceImpl subjectService) {
+        this.subjectService = subjectService;
+    }
 
     @PostMapping
     public Subject createSubject(@RequestBody SubjectDTO dto) {

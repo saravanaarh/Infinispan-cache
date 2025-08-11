@@ -1,21 +1,19 @@
-package com.project.cache.services;
+package com.project.cache.services.impl;
 
-import com.project.cache.model.dto.SubjectDTO;
 import com.project.cache.model.Subject;
-import com.project.cache.repository.StudentRepository;
+import com.project.cache.model.dto.SubjectDTO;
 import com.project.cache.repository.SubjectRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.project.cache.services.SubjectServiceI;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-@Service
-public class SubjectService {
+public class SubjectServiceImpl implements SubjectServiceI {
 
     private final SubjectRepository subjectRepository;
 
-    private final StudentRepository studentRepository;
+    public SubjectServiceImpl(SubjectRepository subjectRepository) {
+        this.subjectRepository = subjectRepository;
+    }
 
     public Subject createSubject(SubjectDTO dto) {
         Subject subject = new Subject();
