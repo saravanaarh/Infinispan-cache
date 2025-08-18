@@ -13,11 +13,7 @@ import java.util.List;
 @RequestMapping("/subjects")
 public class SubjectController {
 
-    private SubjectServiceImpl subjectService;
-
-    public SubjectController(SubjectServiceImpl subjectService) {
-        this.subjectService = subjectService;
-    }
+    private final SubjectServiceImpl subjectService;
 
     @PostMapping
     public Subject createSubject(@RequestBody SubjectDTO dto) {

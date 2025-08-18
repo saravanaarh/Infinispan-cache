@@ -4,9 +4,14 @@ import com.project.cache.model.Subject;
 import com.project.cache.model.dto.SubjectDTO;
 import com.project.cache.repository.SubjectRepository;
 import com.project.cache.services.SubjectServiceI;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@Slf4j
 public class SubjectServiceImpl implements SubjectServiceI {
 
     private final SubjectRepository subjectRepository;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan xmlns="urn:infinispan:config:12.1">
+    <cache-container name="clustered" default-cache="studentsCache">
+        <transport cluster="student-cache-cluster" />
+        <distributed-cache name="studentsCache" mode="SYNC" owners="2" segments="256">
+            <memory max-count="10000" when-full="REMOVE"/>
+            <expiration lifespan="1800000" max-idle="900000"/>
+            <state-transfer timeout="30000" chunk-size="512"/>
+            <partition-handling when-split="ALLOW_READ_WRITES" merge-policy="PREFERRED_NON_NULL"/>
+        </distributed-cache>
+        <jmx enabled="true" domain="com.project.cache" />
+        <metrics gauges="true" histograms="true"/>
+    </cache-container>
+</infinispan>

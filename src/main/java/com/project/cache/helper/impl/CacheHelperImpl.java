@@ -1,4 +1,3 @@
-// helper/impl/CacheHelperImpl.java
 package com.project.cache.helper.impl;
 
 import com.project.cache.config.InfinispanConfig;
