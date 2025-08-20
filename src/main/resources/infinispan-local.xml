@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <infinispan xmlns="urn:infinispan:config:13.0">
-    <cache-container name="local" default-cache="studentsCache">
+    <cache-container name="local" default-cache="student-cache-container">
         <local-cache name="studentsCache">
             <memory max-count="1000" when-full="REMOVE"/>
             <expiration lifespan="600000"/>

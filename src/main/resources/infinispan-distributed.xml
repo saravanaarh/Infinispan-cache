@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan xmlns="urn:infinispan:config:13.0">
+    <cache-container name="clustered" default-cache="student-cache-container">
+        <!--
+        Transport using UDP stack for dynamic clustering
+        Like Keycloak - any number of pods can join
+        -->
+        <transport lock-timeout="60000" stack="udp"/>
+
+        <!-- JGroups UDP stack -->
+        <stack-file name="udp" path="jgroups-udp.xml"/>
+
+        <!--
+        DISTRIBUTED CACHE: Data partitioned across cluster nodes
+        - mode="SYNC": Synchronous replication for consistency
+        - owners="2": Each entry stored on 2 nodes for redundancy
+        - segments="256": Cache divided into 256 segments for distribution
+        -->
+        <distributed-cache name="studentsCache" mode="SYNC" owners="2" segments="256">
+            <encoding>
+                <key media-type="application/x-java-object"/>
+                <value media-type="application/x-java-object"/>
+            </encoding>
+            <memory max-count="10000" when-full="REMOVE"/>
+            <expiration lifespan="1800000" max-idle="900000"/>
+            <state-transfer timeout="30000" chunk-size="512"/>
+            <partition-handling when-split="ALLOW_READ_WRITES" merge-policy="PREFERRED_NON_NULL"/>
+        </distributed-cache>
+
+    </cache-container>
+</infinispan>
